@@ -1,6 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+<div class="album py-5 bg-light">
+  <div class="container">
+	  <div class="row">
+          <div class="col-md-4">
+	      <div class="card mb-4 shadow-sm">
+	        <img class="card-img-top" src="{{ content.id.image.url }}" alt=" Card image cap">
+	        <div class="card-body">
+	          <h4>{{ content.id.title }}</h4>
+	          <p class="card-text">{{ content.id.content }}</p>
+	          <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary" >View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    </div>
+                  </div>
+	        </div>
+	      </div>
+	    </div>
+	   </div>
+	   </div>
+	   </div>
+	   
         <!-- 게시글 제목 -->
         <div class="title">
             <h1>title</h1>

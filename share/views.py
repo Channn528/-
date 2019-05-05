@@ -11,14 +11,15 @@ from django.views.decorators.http import require_POST
 # Create your views here.
 
 def home(request):
-    contents = Content.objects
-    return render(request, 'home.html', {'contents': contents})   
+     contents = Content.objects.all()
+     print('@@',contents)
+     return render(request, 'home.html', {'contents': contents})   
      
 
 #확대된 보드 보여줌
 def board(request, id):
-     contents=Content.objects.get(pk=id)
-     return render(request, 'board.html',{'contents',contents})
+     content=Content.objects.get(pk=id)
+     return render(request, 'board.html',{'content': content})
      
      
 # 기존 보드 및 추가보드에 쓰는거   

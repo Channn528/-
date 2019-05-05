@@ -7,13 +7,19 @@
   <div class="album py-5 bg-light">
   <div class="container">
 	  <div class="row">
-	  {% for content in contents.all %}
+	  {% for content in contents %}
 	    <div class="col-md-4">
 	      <div class="card mb-4 shadow-sm">
 	        <img class="card-img-top" src="{{ content.image.url }}" alt=" Card image cap">
 	        <div class="card-body">
 	          <h4>{{ content.title }}</h4>
 	          <p class="card-text">{{ content.content }}</p>
+	          <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="location.href='/{{ content.id }}'">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    </div>
+                  </div>
 	        </div>
 	      </div>
 	    </div>
