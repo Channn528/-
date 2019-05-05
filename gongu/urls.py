@@ -26,4 +26,4 @@ urlpatterns = [
     path('',views.home, name='home'),
     path('share/', include(share_urls)),
     path('user/', include(user_urls)),
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
