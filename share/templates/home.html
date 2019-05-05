@@ -6,12 +6,10 @@
   <!--로그인/회원가입 NAV-->
    <nav class="navbar navbar-expand-lg navbar-light bg-light">
      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-         <ul class="navbar-nav mr-auto" style-type="none">
+         <ul class="navbar-nav mr-auto" style="list-style-type: none;">
            <li class="nav-item">
-             <a class="nav-link" href="#">로그인</a>
-           </li>
-           <li class="nav-item">
-             <a class="nav-link" href="#">회원가입</a>
+             <a class="nav-link" href="{% url 'login' %}" style="display: inline-block;">로그인</a>
+             <a class="nav-link" href="{% url 'signup' %}" style="display: inline-block;">회원가입</a>
            </li>
          </ul>
          <form class="form-inline my-2 my-lg-0">
@@ -20,6 +18,11 @@
          </form>
      </div>
    </nav>
+   <!--공YOU & 소개링크-->
+   <div>
+     <h1>공YOU</h1>
+     <a href="introduce.html">소개페이지로 이동</a> 
+   </div>
    <!--여기서 부터는 밑부분 앨범-->
      <div class="album py-5 bg-light">
          <div class="container">

@@ -17,9 +17,13 @@ from django.contrib import admin
 from django.urls import path,include
 from . import views
 from share import urls as share_urls
+from user import urls as user_urls
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home, name='home'),
     path('share/', include(share_urls)),
+    path('user/', include(user_urls)),
 ]
