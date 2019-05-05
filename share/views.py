@@ -11,7 +11,8 @@ from django.views.decorators.http import require_POST
 # Create your views here.
 
 def home(request):
-     return render(request, 'home.html')   
+    portfolios = Portfolio.objects
+    return render(request, 'home.html', {'portfolios': portfolios})   
      
 
 #확대된 보드 보여줌
