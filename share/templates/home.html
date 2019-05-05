@@ -1,18 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% load staticfiles %}
      
           
   <div class="album py-5 bg-light">
   <div class="container">
 	  <div class="row">
-	  {% for portfolio in portfolios.all %}
+	  {% for content in contents.all %}
 	    <div class="col-md-4">
 	      <div class="card mb-4 shadow-sm">
-	        <img class="card-img-top" src="{{ portfolio.image.url }}" alt=" Card image cap">
+	        <img class="card-img-top" src="{{ content.image.url }}" alt=" Card image cap">
 	        <div class="card-body">
-	          <h4>{{ portfolio.title }}</h4>
-	          <p class="card-text">{{ portfolio.description }}</p>
+	          <h4>{{ content.title }}</h4>
+	          <p class="card-text">{{ content.content }}</p>
 	        </div>
 	      </div>
 	    </div>
