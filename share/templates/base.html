@@ -5,24 +5,74 @@
     <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+          <meta name="description" content="">
+          <meta name="author" content="">
           <!--부트스트랩 CDN-->
           <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-          <link rel="stylesheet" href="{% static 'css/home.css' %}">
+          <link rel="stylesheet" href="{% static 'css/gongu.css' %}">
+          <link href="https://fonts.googleapis.com/css?family=Modak|Noto+Sans+KR|Righteous" rel="stylesheet">
+          <link rel="icon" href="../../../../favicon.ico">
+          <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/navbar-top-fixed/">
           <!--타이틀-->
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+          <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
           <title>공YOU</title>
+          <style type="text/css">
+              .sub-navi-container {
+                  text-align: center;
+                  position: relative;
+              }
+              .sub-navi-container>.button_group {
+                  display: inline-block;
+                  text-align: center;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  position: absolute;
+              }
+              nav{
+                  /*background-color : red;*/
+                  /*background-color : red;*/
+                  background-color : #21b8d8 !important;
+              }
+              .sub-navi-container>.research {
+                  float: right;
+              }
+              .library, .ranking {
+                  display: inline-block;
+              }
+              #category {
+                  text-align: center;
+                  clear: right;
+              }
+              .move_intro {
+                  color: gray;
+              }
+              a:hover {
+                  text-decoration: none;
+              }
+            .asd{
+                position:fixed;
+                width: 100%; /* Full width */
+            }
+            nav a{color : #fff; text-decoration : none;}
+            nav a:hover{ color : #fff; font-weight : 800; }
+            
+            #navbarCollapse a{ color : #fff; text-decoration : none; }
+            #navbarCollapse a:hover {color : #fff; font-weight : 800;}
+          </style>
      </head>
 
   <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-         <ul class="navbar-nav mr-auto" style="list-style-type: none;">
+     <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color: white;">
+      <a class="navbar-brand" href="{% url 'share:home'%}">공YOU</a>
+      <div class="login asd">
+        <ul class="nav justify-content-end" style="margin-top: -50px; padding-right:20px;">
            {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-item nav-link">환영합니다. {{ user.username }} 님</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-item nav-link" href="{% url 'add' %">글쓰기</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-item nav-link" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
@@ -30,23 +80,64 @@
 	                        {% csrf_token %} <input type="hidden" />
                         </form>
                     </li>
-                    {% else %}
-                    <li class="nav-item">
-                        <a class="nav-item nav-link" href="{% url 'signup' %}">Signup</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-                    </li>
-                    {% endif %}
-         </ul>
+        </ul>
+            {% else %}
+            <form class="my-2 my-md-0" style="position:absolute; right : 10px;">
+            <div class="text-right" style="margin-right: 10px;">
+                <a href="{% url 'login' %}">Login | </a>
+                <a href="{% url 'signup' %}">Sign up</a>
+            </div>
+            </form>
+            <!--
+            <li class="nav-item">
+                <a class="nav-item nav-link" href="{% url 'signup' %}">Signup</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+            </li>
+            -->
+            {% endif %}
+        
+     </div>
+      <div class="collapse navbar-collapse" id="navbarCollapse" style="margin-top: 50px;">
+        <ul class="navbar-nav mr-auto" style="padding-left:39.5%; ">
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="color:black;">Library</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="color:black;">Ranking</a>
+          </li>
+        </ul>
+        <form action="{% url 'share:search' %}" method="get" class="my-2 my-md-0" style="position:absolute; right : 10px;">
+          <div class="input-group ">
+              <input type="text" name="q" value="{{ q }}" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-success" type="button" id="button-addon2">Button</button>
+              </div>
+          </div>
+        </form>
+      </div>
+    </nav>
+      <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container d-flex justify-content-between">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+            <strong>공YOU</strong>
+          </a>
+         
+        </div>
+      </div>
+    </header>
+    
+    
+   
+ <!--
          <form class="form-inline my-2 my-lg-0">
            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
          </form>
-     </div>
-   </nav>
-
-    <main role="main">
+         -->
+    <!--<main role="main">
 
       <section class="jumbotron text-center">
         <div class="container">
@@ -59,7 +150,7 @@
         </div>
       </section>
 
-    </main>
+    </main>-->
 
     
    

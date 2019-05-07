@@ -1,23 +1,54 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
-        <!-- 타이틀 입력 -->
-        <div class="title">
-            <input type="text" class="title">
+<!--전체박스-->
+        <form action="{% url 'share:add' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+        <div class="all_box">
+        <h1 class="explanation"><span>N</span>ew <span>A</span>rticle</h1>
+            <!--카테고리 박스-->
+            <div class="Kategorie1">
+                <label for="Kategorie" class="Kategorie-label">분류</label>
+                <select name="Kategorie" id="Kategorie" class="Kategorie-select">
+                    <option value="art">예술</option>
+                    <option value="sports">스포츠</option>
+                    <option value="coding">웹개발</option>
+                    <option value="lang">언어</option>
+                </select>
+            </div>
+
+            <!--이미지 박스-->
+            <div class="img_box">
+                <!-- 이미지 입력 -->
+                <div class="img">
+                    <!--<a href="#" role='button' onclick='alert("clicked!!")'>-->
+                    <!--    <img src="./image/board_img.jpg" alt="img" class="img" width="800px">-->
+                        
+                    <!--</a>-->
+                    <input type="file" name="upload_image"/>
+                    <!--<button class="img"></button>-->
+                </div>
+            </div>
+            <div class="input_box">
+                <!-- 타이틀 입력 -->
+                <div class="title-container" style="margin-left: 0px;">
+                    <p class="title" style="margin-left: 15px; color: black; margin-top: 10px;">제목</p>
+                    <textarea name="title" class="title-box"></textarea>
+                </div>
+                <!-- 내용 입력 -->
+                <div class="content-container">
+                    <p class="content">내용</p>
+                    <textarea name="content" class="content-box"></textarea>
+                </div>
+            </div>
+            <!-- 저장/완료 버튼 -->
+            <div class="button">
+                <button class="btn btn-info finish">글올리기</button>
+                <button class="btn btn-secondary save">임시저장</button>
+            </div>
         </div>
-        <!-- 내용 입력 -->
-        <div class="content">
-            <input type="text" class="content">
-        </div>
-        <!-- 이미지 입력 -->
-        <div class="img">
-            <input type="text" class="img">
-            <button class="img">이미지 불러오기</button>
-        </div>
-        <!-- 저장/완료 버튼 -->
-        <div class="button">
-            <button class="save">저장</button>
-            <button class="finish">완료</button>
-        </div>
+        
+        </form>
         
 {% endblock %}

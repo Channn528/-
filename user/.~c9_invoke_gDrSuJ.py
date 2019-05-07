@@ -15,7 +15,7 @@ def signup(request):
                 user = User.objects.create_user(
                     request.POST['username'], password=request.POST['password1'])
                 auth.login(request, user)
-                return redirect('share:home')
+                return redirect('home.')
         else:
             return render(request, 'signup.html', {'error': 'Passwords must match'})
     else:
@@ -24,7 +24,7 @@ def signup(request):
         
 def login(request):
     if request.method == 'POST':
-         username = request.POST['username']
+         webmial = request.POST['webmail']
          password = request.POST['password']
          user = auth.authenticate(request, username=username, password=password)
          if user is not None:

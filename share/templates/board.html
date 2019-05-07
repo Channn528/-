@@ -1,57 +1,88 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 
-<div class="album py-5 bg-light">
-  <div class="container">
-	  <div class="row">
-          <div class="col-md-4">
-	      <div class="card mb-4 shadow-sm">
-	        <img class="card-img-top" src="{{ content.id.image.url }}" alt=" Card image cap">
-	        <div class="card-body">
-	          <h4>{{ content.id.title }}</h4>
-	          <p class="card-text">{{ content.id.content }}</p>
-	          <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary" >View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+<div class="all-box2">
+        <!--타이틀/카테코리/ 내용/ 이미지-->
+            <div class="title-container container pt-3">
+                <img src="{{ content.image.url }}" alt="title-img" class="title-img1" width="">
+                <div class='img-info'>
+                    <div class='img-info-cover'></div>
+                    <div class='img-info-content'>
+                        <p class="Kategorie">Kategorie</p>
+                        <h3 class="title">{{ content.title }}</h3>
+                        <p class="title-content pl-3">{{ content.content }} </p>
+                    </div>    
+                </div>
+                
+            </div>
+            
+            <!-- 좋아요/버튼 -->
+            <div class="box1">
+                <div class="like">
+                    <p class="like">좋아요</p>
+                    <button class="heart_full"><img src="{% static '/image/heart.png'%}" alt="heart_full" width=30px></button>
+                    <button class="heart"><img src="{% static '/image/heart_2.png'%}" alt="heart" width=30px></button>
+                </div>
+            </div>
+
+                <!-- 댓글 쓰기 -->
+               
+            <div class="box2">
+                <div class="box3">
+                    <div class="comments">
+                         
+                        <div class="row align-items-center">
+                            <div class="item">
+                                 <form action = "{% url 'share:comment' content.id %}" method = "POST">
+                                
+                                  {% csrf_token %}
+                                  <div class="col-md-1">
+                                     <img src="{% static '/image/profile.jpg' %}" alt="profile" class="profile-img" width="100px" >
+                                   </div>
+                                   <div class="col-md-10">
+                                     <input type="text" name="comment" value="댓글을 남겨주세요." class="profile-text" width="100%"/>
+                                   </div>
+                                   <div class="col-md-1">
+                                     <input type="submit" value="Submit"/>
+                                  </div>
+                                  </form>
+                              </div>
+                                  
+                        </div>
+                        
                     </div>
-                  </div>
-	        </div>
-	      </div>
-	    </div>
-	   </div>
-	   </div>
-	   </div>
-	   
-        <!-- 게시글 제목 -->
-        <div class="title">
-            <h1>title</h1>
-       </div>
-       <!-- 게시글 이미지 -->
-       <div class="img">
-           <img src="" alt="img" class="img">
-       </div>
-       <!-- 게시글 내용 -->
-       <div class="content">
-            <p>content</p>
-       </div>
-       <!-- 좋아요/버튼 -->
-       <div class="like">
-           <!--<button>하트 이미지 들어갈 예정</button>-->
-           <!--<button>꽉찬 하트 이미지 들어갈 예정</button>-->
-           <p class="like">좋아요</p>
-       </div>
-       <!-- 댓글 쓰기 -->
-       <div class="comments">
-           <img src="" alt="profile" class="profile">
-           <input type="text" class="comments">
-           <button>댓글쓰기</button>
-       </div>
-       <!-- 댓글 입력완료 -->
-       <div class="comments_done">
-           <img src="" alt="profile" class="profile_done">
-           <p class="comments_done"></p>
-           <button>댓글수정</button>
-        </div>
+                     </div>
+                
+                    <!--<img src="./image/profile.jpg" alt="profile" class="profile" width="100px" >-->
+    
+                    <!--    <textarea name="introduce" id="intreduce" placeholder="댓글을 남겨주세요."></textarea>-->
+                    <!--    <button class="btn btn-primary Commenting">댓글입력</button>-->
+                        <!--<div class="btn btn-primary">댓글입략</div>-->
+    
+
+                <!-- 댓글 입력완료 -->
+                
+               {% for comment in comments %}
+               <div class='row align-items-center mt-3'>
+                            <div class='col-md-1'>
+                                <img src="{% static '/image/profile.jpg' %}" alt="profile" class="profile_done" width="100px">
+                                
+                            </div>
+                            <div class='col-md-10'>
+                                <p class="comments_webmail">웹메일</p>                        
+                                <p class="comments_done">{{comment.comment}}</p>
+                            </div>
+                            <div class='col-md-1'>
+                                <button class="btn btn-warning fix">수정</button>
+                            </div>
+                        </div>
+               {% endfor %}
+                
+            </div>    
+        </div> 
+</div>
+
+
 {% endblock %}
+

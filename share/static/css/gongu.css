@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css?family=Modak|Noto+Sans+KR|Righteous');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+body{
+    background-color: #33cccc;
+
+}
+.explanation{
+    font-size: 100px;
+    font-family: 'Righteous', cursive;
+}
+.all_box{
+    background-color: #ffffff;
+    width: 90%;
+    margin: auto;
+    border-radius: 2%;
+    padding-bottom: 2%;
+}
+.Kategorie1{
+    background-color: #c2efef;
+    width: 90%;
+    margin: auto;
+    border-radius: 2%;
+    padding-top:2%;
+    margin-bottom: 1%;
+}
+.Kategorie-select{
+    width: 90%;
+}
+.Kategorie-label{
+    margin-top: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+.explanation{
+    margin-left: 5%;
+    padding-top: 5%;
+}
+    
+.explanation span{
+    color: #30b5b5;
+}  
+.img{
+        margin-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.img_box{
+    background-color: #c2efef;
+    width: 90%;
+    margin: auto;
+    border-radius: 2%;
+    padding-top:2%;
+}
+.input_box{
+    background-color: #c2efef;
+    width: 90%;
+    margin: 20px auto;
+    border-radius: 2%
+}
+
+.title-container{ 
+    padding-top: 2%;
+    display:flex; align-items : center; }
+
+.title{
+    display: inline-block;
+    margin-right : 15px;
+    margin-left: 15px;
+}
+.title-box{
+     width: 90%;
+    height: 100%;
+}
+.content-box{
+    width: 90%;
+    height: 300px;
+}
+.content-container{ 
+    padding-bottom: 2%;
+    display:flex; align-items : center; margin-top:10px; }
+
+.content{
+    display: inline-block;
+    margin-right : 15px;
+    margin-left: 15px;
+}
+.button{
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+body{
+    background-color: #33cccc;
+}
+.all-box{
+    background-color: #ffffff;
+    border-radius: 2%;
+    width: 90%;
+    margin: auto;
+    padding-bottom: 20px;
+    margin-bottom: 50px;
+}
+.title-img{
+    /*margin:auto;*/
+    width:100%;
+}
+.title-img1{
+    /*margin:auto;*/
+    width:100%;
+    text-align:center;
+}
+.title{
+    margin-left: 10px;
+    color: #ffffff
+}
+.title-container{position:relative; 
+    margin-left: 20px; color: #ffffff}
+.img-info{ 
+    position:absolute; 
+    bottom:20px;
+    left:20px;
+    width:250px;
+    height:135px;
+}
+.img-info-cover{
+    position:absolute;
+    width:100%;
+    height:100%;
+    /*background-color:rgba(255,255,255,0.6);*/
+    z-index:10;
+}
+.img-info-content{z-index:11;position:absolute;}
+/*이미지안 글씨들*/
+.Kategorie {
+    font-size: 20px;
+    margin-left: 10px;
+    color: #268c8c;
+    font-family: 'Josefin Sans', sans-serif;
+}
+/*좋아요박스*/
+.box1{
+    background-color: #9ae4e4;
+    border-radius: 2%;
+    width: 95%;
+    margin: 30px auto;
+    padding: 14px;
+    height: 65px;
+}
+/*댓글박스*/
+.profile-text{
+        width: 100%;
+    margin-left: 1%;
+}
+.box2{
+    background-color: #d7f4f4;
+    border-radius: 2%;
+    width: 95%;
+    margin: auto;
+    margin-bottom:2%;
+}
+.box3{
+    background-color: #d7f4f4;
+    border-radius: 2%;
+    width: 95%;
+    margin: auto;
+
+}
+#introduce{
+    width: 100%;
+    height: 100%;
+}
+.col-md-1{
+    width: 100%;
+}
+/*좋아요 버튼*/
+.like{
+    display:inline-block;
+}
+/*댓글 쓰기*/
+.comments img{
+    border-radius: 50%;
+}
+/*댓글 입력 완료*/
+.comments_done img{
+    border-radius: 50%;
+
+}
+.row align-items-center{
+    margin-bottom: 2%;
+}
+/*웹메일 아이디*/
+.comments_webmail{
+    color: #268c8c;
+}
+/*고정된 댓글*/
+.comments_done{
+    
+}
+
+
+.signup1 {
+     text-align:center;
+}
+
+.input{
+     text-align:center;
+     margin: 0 auto;
+}

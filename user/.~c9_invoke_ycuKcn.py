@@ -9,13 +9,13 @@ def signup(request):
         # User has info and wants an account now!
         if request.POST['password1'] == request.POST['password2']:
             try:
-                user = User.objects.get(username=request.POST['username'])
+                user = User.objects.get(wee=request.POST['username'])
                 return render(request, 'signup.html', {'error': 'Username has already been taken'})
             except User.DoesNotExist:
                 user = User.objects.create_user(
                     request.POST['username'], password=request.POST['password1'])
                 auth.login(request, user)
-                return redirect('share:home')
+                return redirect('home.')
         else:
             return render(request, 'signup.html', {'error': 'Passwords must match'})
     else:

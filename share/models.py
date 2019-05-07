@@ -9,8 +9,7 @@ from django.utils import timezone
 class Content(models.Model):
      image = models.ImageField(upload_to='images/')
      title = models.CharField(max_length=200)
-     relay = models.TextField()
-     tag_set = models.ManyToManyField('Tag', blank=True)
+
      content = models.TextField()
 
      created_at = models.DateTimeField(auto_now_add = True)
@@ -18,7 +17,8 @@ class Content(models.Model):
      
      def __str__(self):
           return self.title
-          
-class Tag(models.Model):
-    name = models.CharField(max_length=140, unique=True)
-   
+     
+
+class Comment(models.Model):
+     comment = models.TextField()
+     content = models.ForeignKey(Content, on_delete=models.CASCADE)

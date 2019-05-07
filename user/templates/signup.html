@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
@@ -8,25 +9,41 @@
 <br>
 {% endif %}
 
-<h1>Sign Up!</h1>
 
 <form method="POST" action="{% url 'signup'%}">
 
 {% csrf_token %}
-Username:
-<br>
-<input name="username"  type="text" value="">
-<br>
-Password:
-<br>
-<input name="password1"  type="password" value="">
-<br>
-Confirm Password:
-<br>
-<input name="password2"  type="password" value="">
-<br>
-<br>
-<input class="btn btn-primary" type="submit" value="Sign Up!">
+<div class="all_box" style="marin: auto, auto;">
+     <h1 class="explanation"><span>S</span>ign <span>u</span>p</h1>
+
+     <div class="img_box" style="textalign=center;">
+          <div class="input_box">
+               <div class="signup1">
+                    <p class="title">Username</p>
+               <br>
+               <input name="username"  type="text" value="">
+               </div>
+          <br>
+          <div class="signup1">
+                    <p class="title">password</p>
+               <br>
+               <input name="password1"  type="password" value="">
+               <br>
+          </div>
+          <div class="signup1">
+                    <p class="title">confirm password</p>
+               <br>
+               <input name="password2"  type="password" value="">
+               <br>
+               <br>
+          </div>
+         <div class="signup1">
+          <input class="btn btn-primary" type="submit" value="Sign Up!">
+          </div>
+          </div>
+     </div>
+</div>
 </form>
+
 
 {% endblock %}

@@ -15,7 +15,7 @@ def signup(request):
                 user = User.objects.create_user(
                     request.POST['username'], password=request.POST['password1'])
                 auth.login(request, user)
-                return redirect('share:home')
+                return redirect('home.')
         else:
             return render(request, 'signup.html', {'error': 'Passwords must match'})
     else:
@@ -38,5 +38,5 @@ def login(request):
 def logout(request):
     if request.method == 'POST':
         auth.logout(request)
-        return redirect('home')
+        return redirect('ho')
     return render(request, 'signup.html')

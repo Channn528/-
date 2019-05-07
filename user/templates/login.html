@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
@@ -8,21 +9,38 @@
 <br>
 {% endif %}
 
-<h1>Login</h1>
 
 <form method="POST" action="{% url 'login'%}">
 
-    {% csrf_token %}
-    Username:
-    <br>
-    <input name="username" type="text" value="">
-    <br>
-    Password:
-    <br>
-    <input name="password" type="password" value="">
-    <br>
-    <br>
-    <input class="btn btn-primary" type="submit" value="Login">
+{% csrf_token %}
+<div class="all_box">
+     <h1 class="explanation"><span>L</span>og <span>I</span>n</h1>
+
+     <div class="img_box" style="text-align:center;">
+          <div class="input_box">
+               <div class="signup1">
+                    <p class="title" >Username</p>
+               <br>
+               <input name="username"  type="text" value="" >
+               </div>
+          <br>
+          <div class="signup1">
+                    <p class="title">password</p>
+               <br>
+               <input name="password"  type="password" value="">
+               <br>
+               <br>
+          </div>
+          <div class="signup1">
+          <input class="btn btn-primary" type="submit" value="Sign Up!">
+          </div>
+          <br>
+          <br>
+          </div>
+     </div>
+</div>
 </form>
 
+
 {% endblock %}
+

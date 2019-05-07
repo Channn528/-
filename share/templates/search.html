@@ -1,0 +1,12 @@
+
+
+<h1>search</h1>
+
+<ol>
+    {% for search in ans %}
+    <a href="{% url 'share:board' search.id %}">
+        <li>{{search.title}} | {{search.updated_at}}</li>
+    </a>
+    <br>
+    {% endfor %}
+</ol>
